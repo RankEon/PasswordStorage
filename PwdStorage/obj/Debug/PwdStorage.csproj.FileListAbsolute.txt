@@ -1,0 +1,42 @@
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\bin\Debug\PwdStorage.exe.config
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\bin\Debug\PwdStorage.exe
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\bin\Debug\PwdStorage.pdb
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.csprojResolveAssemblyReference.cache
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\CreateNewPwd.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\Login.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\MainWindow.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\App.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage_MarkupCompile.cache
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage_MarkupCompile.lref
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\CreateNewPwd.baml
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\Login.baml
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\MainWindow.baml
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.g.resources
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.Properties.Resources.resources
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.csproj.GenerateResource.Cache
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.exe
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\PwdStorage.pdb
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\ChangePwd.g.cs
+E:\Pasi\Ohjelmointi\CSharp\PwdStorage\PwdStorage\PwdStorage\obj\Debug\ChangePwd.baml
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\bin\Debug\PwdStorage.exe.config
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\bin\Debug\PwdStorage.exe
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\bin\Debug\PwdStorage.pdb
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.csprojResolveAssemblyReference.cache
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\ChangePwd.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\CreateNewPwd.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\Login.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\MainWindow.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\App.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage_MarkupCompile.cache
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage_MarkupCompile.lref
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\ChangePwd.baml
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\CreateNewPwd.baml
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\Login.baml
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\MainWindow.baml
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.g.resources
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.Properties.Resources.resources
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.csproj.GenerateResource.Cache
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.exe
+E:\VSTeamServices\Repos\Password Storage\PwdStorage\obj\Debug\PwdStorage.pdb

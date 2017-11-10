@@ -1,0 +1,20 @@
+﻿<Window x:Name="FormChangePassword" x:Class="PwdStorage.ChangePwd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PwdStorage"
+        mc:Ignorable="d"
+        Title="Change Password" Height="261.17" Width="305.492" ResizeMode="NoResize">
+    <Grid>
+        <PasswordBox x:Name="pwBoxOldPassword" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="272"/>
+        <PasswordBox x:Name="pwBoxNewPassword" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="272"/>
+        <PasswordBox x:Name="pwBoxReTypeNewPassword" HorizontalAlignment="Left" Margin="10,144,0,0" VerticalAlignment="Top" Width="272"/>
+        <Label x:Name="lblOldPassword" Content="Current password" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNewPassword" Content="New password" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOldPassword_Copy1" Content="Repeat new password" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnChangePassword" Content="Change password" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="103" Click="btnChangePassword_Click"/>
+        <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="272"/>
+
+    </Grid>
+</Window>
