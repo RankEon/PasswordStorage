@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PwdStorage"
         mc:Ignorable="d"
-        Title="Password Storage" Height="330.778" Width="529.805" WindowStartupLocation="CenterScreen">
+        Title="Password Storage" Height="330.778" Width="529.805" WindowStartupLocation="CenterScreen" ContentRendered="MainWindow_OnContentRendered">
     <Window.DataContext>
         <local:CredentialInfo />
     </Window.DataContext>
@@ -17,6 +17,13 @@
                 <DataGridTextColumn Header="Password" HeaderStringFormat="Password" MaxWidth="150" MinWidth="100" Binding="{Binding Password}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Name="spProgressIndicator" Orientation="Vertical" Background="Gray" Opacity="50" VerticalAlignment="Center" Width="400" Height="150" Visibility="Collapsed">
+            <TextBlock Text="Processing" Background="DarkGray" Margin="0,0,0,20" />
+            <ProgressBar Name="pbProgressBar" Minimum="0" Maximum="100" MinHeight="20" />
+            <TextBlock Text="Please wait..." Background="Gray" Margin="0,10,0,0" FontSize="18" HorizontalAlignment="Center" />
+        </StackPanel>
+        
         <Button x:Name="btnAddNewPassword" Content="+ Add" HorizontalAlignment="Left" Margin="10,262,0,0" VerticalAlignment="Top" Width="75" Click="btnAddNewPassword_Click"/>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="522" ClipToBounds="True">
             <MenuItem Header="File">
@@ -39,6 +46,5 @@
             <TextBox x:Name="tbSearch" HorizontalAlignment="Left" Height="20" Margin="0,-5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" BorderThickness="1,1,0,1" BorderBrush="#FF707070" KeyDown="tbSearchOnKeyDown"/>
             <Button x:Name="btnClearSearch" Content="X" HorizontalAlignment="Left" Margin="0,-5,0,0" VerticalAlignment="Top" Width="28" Grid.Column="1" BorderThickness="0,1,1,1" Click="btnClearSearch_Click"/>
         </Grid>
-
     </Grid>
 </Window>

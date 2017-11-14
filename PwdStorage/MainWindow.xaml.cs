@@ -35,34 +35,7 @@ namespace PwdStorage
         public MainWindow()
         {
             InitializeComponent();
-
-            // Check for user identification file, which contains password hash and salt.
-            if (!File.Exists(@".\Userid.dat"))
-            {
-                CreateNewPwd FormNewPwd = new CreateNewPwd();
-                FormNewPwd.Activate();
-                FormNewPwd.Show();
-                FormNewPwd.Focus();
-                FormNewPwd.Topmost = true;
-                CredentialList.Add(new CredentialInfo { Site = "", Username = "", Password = "" });
-            }
-            else
-            {
-                Login FormLogin = new Login();
-                FormLogin.WindowStyle = WindowStyle.None;
-                FormLogin.ShowDialog();
-                FormLogin.Focus();
-                FormLogin.Topmost = true;
-
-                //CredentialList.Add(new CredentialInfo { Username = "x", Password = "y", Site = "z" });
-                if (File.Exists(@".\passdata.dat"))
-                {
-                    this.LoadPwData();
-                }                
-            }
-
             dataGridPasswords.ItemsSource = CredentialList;
-
         }
 
         /// <summary>
@@ -76,7 +49,17 @@ namespace PwdStorage
 
                 foreach (CredentialInfo item in CredentialList)
                 {
-                    passdata.Add(item.Site + "\t" + item.Username + "\t" + item.Password + "\n");
+                    string siteName = item.Site;
+
+                    // Remove unwanted characters from the names
+                    if (siteName.Contains("ä"))
+                        siteName = siteName.Replace('ä', 'a');
+                    if (siteName.Contains("ö"))
+                        siteName = siteName.Replace('ö', 'o');
+                    if (siteName.Contains("å"))
+                        siteName = siteName.Replace('å', 'a');
+
+                    passdata.Add(siteName + "\t" + item.Username + "\t" + item.Password + "\n");
                 }
 
                 List<byte[]> passBytes = new List<byte[]>();
@@ -122,8 +105,22 @@ namespace PwdStorage
         /// </summary>
         private void LoadPwData()
         {
+            BackgroundWorker loadDataWorker = new BackgroundWorker();
+            loadDataWorker.WorkerReportsProgress = true;
+            loadDataWorker.DoWork += bgWorkerLoadPwData_DoWork;
+            loadDataWorker.ProgressChanged += bgWorker_ProgressChanged;
+            loadDataWorker.RunWorkerAsync();
+        }
+
+        private void bgWorkerLoadPwData_DoWork(object sender, DoWorkEventArgs e)
+        {
             try
             {
+                int progressPct = 1;
+
+                this.Dispatcher.BeginInvoke((Action)delegate { spProgressIndicator.Visibility = Visibility.Visible; });
+                ((BackgroundWorker)sender).ReportProgress(progressPct);
+
                 // Get salt+key
                 byte[] salt = ProgramData.GetPwSalt();
                 byte[] key = ProgramData.GetPwHash();
@@ -147,6 +144,7 @@ namespace PwdStorage
                     {
                         pwList.Add(sbLine.ToString());
                         sbLine.Clear();
+                        ((BackgroundWorker)sender).ReportProgress((progressPct < 100) ? progressPct++ : progressPct);
                     }
                     else
                     {
@@ -158,18 +156,31 @@ namespace PwdStorage
                 deCryptStream.Close();
 
                 // Update Credential list
-                CredentialList.Clear();
+                this.Dispatcher.BeginInvoke((Action)delegate { CredentialList.Clear(); });
 
                 foreach (string entry in pwList)
                 {
                     string[] content = entry.Split(new char[] { '\t' });
-                    CredentialList.Add(new CredentialInfo { Site = content[0], Username = content[1], Password = content[2] });
+                    this.Dispatcher.BeginInvoke((Action)delegate
+                    {
+                        CredentialList.Add(new CredentialInfo { Site = content[0], Username = content[1], Password = content[2] });
+                    });
+                    ((BackgroundWorker)sender).ReportProgress((progressPct < 100) ? progressPct++ : progressPct);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error:\n" + e.Message, "Error");
+                MessageBox.Show("Error:\n" + ex.Message, "Error");
             }
+            finally
+            {
+                this.Dispatcher.BeginInvoke((Action)delegate { spProgressIndicator.Visibility = Visibility.Collapsed; });
+            }
+        }
+
+        private void bgWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            pbProgressBar.Value = e.ProgressPercentage;
         }
 
         /// <summary>
@@ -281,6 +292,36 @@ namespace PwdStorage
             if (e.Key == Key.Enter)
             {
                 btnSearch.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
+
+        private void MainWindow_OnContentRendered(object sender, EventArgs e)
+        {
+            // Check for user identification file, which contains password hash and salt.
+            if (!File.Exists(@".\Userid.dat"))
+            {
+                CreateNewPwd FormNewPwd = new CreateNewPwd();
+
+                // Center the dialog on top of the parent.
+                FormNewPwd.Owner = this;
+                FormNewPwd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                FormNewPwd.Activate();
+                FormNewPwd.ShowDialog();
+                CredentialList.Add(new CredentialInfo { Site = "", Username = "", Password = "" });
+            }
+            else
+            {
+                Login FormLogin = new Login();
+                FormLogin.WindowStyle = WindowStyle.None;
+                FormLogin.ShowDialog();
+                FormLogin.Focus();
+                FormLogin.Topmost = true;
+
+                //CredentialList.Add(new CredentialInfo { Username = "x", Password = "y", Site = "z" });
+                if (File.Exists(@".\passdata.dat"))
+                {
+                    this.LoadPwData();
+                }
             }
         }
     }
